@@ -31,6 +31,7 @@ const Table = ({ todos, setTodos, isLoading }) => {
       const response = await axios.patch(
         `http://localhost:8000/api/todo/${id}/`, value
       );
+      
       const newTodos = todos.map((todo) => {
         if (todo.id === id) {
           return response.data;
