@@ -20,7 +20,9 @@ const TodoForm = (setTodos, fetchData) => {
     try {
       await axios.post('http://localhost:8000/api/todo/', newTodo)
       setTodos({'body': ''})
+
       fetchData()
+      
     } catch (error) {
       console.log(error)
     }

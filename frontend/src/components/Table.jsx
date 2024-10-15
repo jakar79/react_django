@@ -20,7 +20,9 @@ const Table = ({ todos, setTodos, isLoading }) => {
     try {
       await axios.delete(`http://localhost:8000/api/todo/${id}/`);
       const newList = todos.filter((todo) => todo.id !== id);
+      
       setTodos(newList);
+
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +33,7 @@ const Table = ({ todos, setTodos, isLoading }) => {
       const response = await axios.patch(
         `http://localhost:8000/api/todo/${id}/`, value
       );
-      
+
       const newTodos = todos.map((todo) => {
         if (todo.id === id) {
           return response.data;
@@ -39,7 +41,9 @@ const Table = ({ todos, setTodos, isLoading }) => {
           return todo;
         }
       });
+
       setTodos(newTodos);
+
     } catch (error) {
       console.log(error);
     }
